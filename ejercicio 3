@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char **argv){
+	FILE *file=NULL;
+	char c[50];
+	file= fopen(argv[1], "r");
+
+	if(file!=NULL){
+		printf("Se encontró el archivo\n");
+		while(feof(file) == 0){
+	//Estructura de fscanf archivo, tipo de dato, lugar para almacenar
+			fscanf(file, "%s", c);
+			printf("%s", c);
+		}
+		fclose(file);
+	}
+	return 0;
+}
