@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char **argv){
+	FILE *file=NULL;
+	unsigned char c[2048];
+	file = fopen(argv[1], "rb");
+	int bytes_leidos;
+
+	if(file!=NULL){
+		printf("Se encontró el archivo\n");
+	//fread(donde guardar, donde empezar, máximos a leer, de donde leer)
+		while(bytes_leidos = fread(c, 1,2048, file))
+			printf("%s", c);
+		fclose(file);
+	}
+	return 0;
+}
