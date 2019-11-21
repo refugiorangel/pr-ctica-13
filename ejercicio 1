@@ -1,0 +1,24 @@
+//En mac, un apuntador no está obligado a iniciar en nilo
+#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char **argv){
+	FILE *file=NULL;
+	//char *c= (char *) malloc(50*sizeof(char));
+	char c[50];
+	file= fopen(argv[1], "r");
+
+	if(file!=NULL){
+		printf("Se encontró el archivo\n");
+		while(feof(file) == 0){
+	//feof regresa un valor 0 si no encuentra el final del archivo
+	//cuando encuentra el final del archivo, regresa un valor diferente de 0
+	//fgets(destino, tamaño, origen
+			fgets(c, 50, file);
+			printf("%s", c);
+		}
+		fclose(file);
+	}
+//	if(!c) 
+//		free(c);
+	return 0;
+}
