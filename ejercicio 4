@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char **argv){
+	FILE *file=NULL;
+	char c[]="Esto es una cadena en lenguaje c, que se va a escribir en el archivo";
+	file= fopen(argv[1], "w");
+
+	if(file!=NULL){
+		printf("Se encontró el archivo\n");
+	//fprintf(archivo, cadena, que escrivir)
+		fprintf(file, "%s", c);
+		fclose(file);
+	}
+	return 0;
+}
